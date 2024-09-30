@@ -7,7 +7,8 @@
 
         <persistence-unit name="Pads" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>org.example.Model.Pessoa</class>
+        <class>org.example.Model.Usuario</class>
+        <class>org.example.Model.Cliente</class>
 
         <properties>
                 <!-- conexão-->
