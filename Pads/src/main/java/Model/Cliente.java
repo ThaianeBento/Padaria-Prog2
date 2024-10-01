@@ -1,6 +1,8 @@
-package org.example.Model;
+package Model;
 
+import jakarta.persistence.Entity;
 
+@Entity
 public class Cliente extends Usuario{
     
     private int pontos;

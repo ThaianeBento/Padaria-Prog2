@@ -1,6 +1,0 @@
-org\example\Model\Usuario.class
-org\example\Model\Atendente.class
-org\example\Model\Cliente.class
-Repository\AdministradorDAO.class
-Repository\AtendenteDAO.class
-Repository\ClienteDAO.class

@@ -1,7 +1,14 @@
-package org.example.Model;
+package Model;
 
-import org.example.Model.Atendente;
+import jakarta.persistence.Entity;
+import Model.Atendente;
 
+@Entity
 public class Administrador extends Atendente{
+    
+    public Administrador(String CPF, String nome) {
+        super(CPF, nome);
+    }
+    
     
 }

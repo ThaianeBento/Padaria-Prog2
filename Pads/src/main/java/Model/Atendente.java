@@ -1,7 +1,9 @@
-package org.example.Model;
+package Model;
+
+import jakarta.persistence.Entity;
 
 
- 
+ @Entity
 public class Atendente extends Usuario{
     private String senha;
     
