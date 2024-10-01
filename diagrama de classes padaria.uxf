@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>234</y>
+      <w>369</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Administrador
+--
+Gets e Sets()
++Administrador(cpf:String,nome:String,senha:String)
++criarAtendente(cpf:String,nome:String,senha:String):Atendente
++excluirAtendente(cpf:String):boolean
++adicionarProduto(nome:String,valor:double):Produto
++removerProduto(nome:String):boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>549</x>
+      <y>225</y>
+      <w>324</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Atendente
+--
+-senha:String
+--
+Gets e Sets()
++Atendente(cpf:String,nome:String,senha:String)
++criarCliente(cpf:String,nome:String):Cliente 
++excluirCliente(cpf:String):boolean
++registrarVenda(cliente:Cliente):Venda
++solicitarCupom(venda:Venda):String 
++visualizarPontuacao(cliente:Cliente):int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>549</x>
+      <y>405</y>
+      <w>225</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Cliente 
+--
+Gets e Sets()
++Cliente(cpf:String,nome:String)
+-pontos:int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>225</y>
+      <w>288</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;abstract&gt;
+/Usuario/
+--
+#id:long 
+#cpf:String
+#nome:String
+--
+Gets e Sets()
++Usuario(cpf:String,nome:String)
++logout():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>576</y>
+      <w>198</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Venda
+--
+-notafiscal:String
+--
+Gets e Sets()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>549</x>
+      <y>567</y>
+      <w>252</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Produto
+--
+-nome:String
+-valor:double
+--
+Gets e Sets()
++Produto(nome:String,valor:double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>360</y>
+      <w>63</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1..1
+m2=0..n
+possui</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>594</y>
+      <w>171</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1..1
+m2=1..n
+contem</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>279</y>
+      <w>198</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>315</y>
+      <w>225</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>315</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;130.0</additional_attributes>
+  </element>
+</diagram>
