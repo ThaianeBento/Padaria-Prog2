@@ -1,14 +1,11 @@
 package Model;
 
-import jakarta.persistence.Entity;
-
-
- @Entity
 public class Atendente extends Usuario{
     private String senha;
-    
-    public Atendente(String CPF, String nome, String senha) {
+
+    public Atendente(String senha, String CPF, String nome) {
         super(CPF, nome);
+        this.senha = senha;
     }
 
     public String getSenha() {
@@ -18,29 +15,28 @@ public class Atendente extends Usuario{
     public void setSenha(String senha) {
         this.senha = senha;
     }// criar regra de segurança
-    
+
     public Cliente criarCliente(String CPF, String nome){
-        
-        return Cliente;
+
+        return new Cliente(CPF,nome);
     }
 
     public boolean excluirCliente (String CPF){
-        if () {
-            return true;
-        } else
+
+        //preciso do BD
         return false;
     }
 
-    public Venda registrarVenda (Cliente cliente) {
-        return Venda;
+    public Venda registrarVenda (String CPF) {
+        return new Venda(CPF);
     }
 
-    public String solicitarCupom (Venda venda) {
-        return "";
+    public void solicitarCupom (Venda venda) {
+        venda.imprimirNotaFiscal();
     }
 
     public int visualizarPontuacao (Cliente cliente) {
         return 0;
     }
-    
+
 }
