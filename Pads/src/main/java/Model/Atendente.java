@@ -5,7 +5,7 @@ package org.example.Model;
 public class Atendente extends Usuario{
     private String senha;
     
-    public Atendente(String CPF, String nome) {
+    public Atendente(String CPF, String nome, String senha) {
         super(CPF, nome);
     }
 
@@ -17,9 +17,28 @@ public class Atendente extends Usuario{
         this.senha = senha;
     }// criar regra de segurança
     
-    public Cliente criarCliente(){
+    public Cliente criarCliente(String CPF, String nome){
         
-        return null;
+        return Cliente;
+    }
+
+    public boolean excluirCliente (String CPF){
+        if () {
+            return true;
+        } else
+        return false;
+    }
+
+    public Venda registrarVenda (Cliente cliente) {
+        return Venda;
+    }
+
+    public String solicitarCupom (Venda venda) {
+        return "";
+    }
+
+    public int visualizarPontuacao (Cliente cliente) {
+        return 0;
     }
     
 }
