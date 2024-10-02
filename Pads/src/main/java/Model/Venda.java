@@ -20,6 +20,10 @@ public class Venda {
         this.cpfCliente = cpf;
         this.produtos = new ArrayList<>();
     }
+    
+    public Venda() {
+        this.produtos = new ArrayList<>();
+    }
     public void addProduto(Produto p) {
         this.produtos.add(p);
     }

@@ -17,7 +17,7 @@ public ClienteDAO() {
         em = emf.createEntityManager();
     }
      
-public void gravar (Cliente cliente){
+public void create (Cliente cliente){
         try {
             em.getTransaction().begin();
             em.persist(cliente);
@@ -30,7 +30,7 @@ public void gravar (Cliente cliente){
         }
     }
 
-public Cliente remover(String CPF){
+public Cliente remove(String CPF){
         Cliente cliente = null;
         
         try {
@@ -57,7 +57,7 @@ public Cliente remover(String CPF){
         return cliente;
     }
 
-public void atualizar(Cliente c) {
+public void update(Cliente c) {
        
         
         try{
@@ -72,7 +72,7 @@ public void atualizar(Cliente c) {
         }
     }
 
- public Cliente buscar (String CPF){
+ public Cliente read (String CPF){
         Cliente cliente = null;
         try {
             em.getTransaction().begin();
