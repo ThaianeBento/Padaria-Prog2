@@ -29,20 +29,25 @@ public class ProdutoDAO {
     }
 
     
-    public Produto read(Long id) {
+    public Produto readByNome(String nome) {
         EntityManager em = emf.createEntityManager();
         Produto produto = null;
 
         try {
-            produto = em.find(Produto.class, id);  
+            produto = em.createQuery("SELECT p FROM Produto p WHERE p.nome = :nome", Produto.class)
+                        .setParameter("nome", nome)
+                        .getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println("Produto não encontrado com nome: " + nome);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            em.close();  
+            em.close();
         }
 
         return produto;
-    }
+}
+
 
     
     public List<Produto> listarTodos() {
@@ -76,27 +81,30 @@ public class ProdutoDAO {
     }
 
     
-    public void remove(Long id) {
-        EntityManager em = emf.createEntityManager();
-        Produto produto = null;
+    public void removeByNome(String nome) {
+    EntityManager em = emf.createEntityManager();
 
-        try {
-            em.getTransaction().begin();
-            produto = em.find(Produto.class, id); 
-            if (produto != null) {
-                em.remove(produto);  
-                em.getTransaction().commit();
-            }
-        } catch (NoResultException e) {
-            System.out.println("Produto não encontrado com ID: " + id);
-            em.getTransaction().rollback();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-            e.printStackTrace();
-        } finally {
-            em.close();  
+    try {
+        em.getTransaction().begin();
+        Produto produto = em.createQuery("SELECT p FROM Produto p WHERE p.nome = :nome", Produto.class)
+                            .setParameter("nome", nome)
+                            .getSingleResult();
+
+        if (produto != null) {
+            em.remove(produto);
+            em.getTransaction().commit();
         }
+    } catch (NoResultException e) {
+        System.out.println("Produto não encontrado com nome: " + nome);
+        em.getTransaction().rollback();
+    } catch (Exception e) {
+        em.getTransaction().rollback();
+        e.printStackTrace();
+    } finally {
+        em.close();
     }
+}
+
 
     public void closeFactory() {
         emf.close();

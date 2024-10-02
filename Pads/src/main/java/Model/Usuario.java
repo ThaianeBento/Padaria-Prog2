@@ -16,16 +16,16 @@ public abstract class Usuario {
     @Column(nullable = false)
     protected String nome;
 
-    // Construtor vazio para JPA
+    
     public Usuario() {}
 
-    // Construtor com parâmetros
+    
     public Usuario(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
     }
 
-    // Getters e Setters
+   
     public long getId() {
         return id;
     }
@@ -35,7 +35,7 @@ public abstract class Usuario {
     }
 
     public void setCPF(String cpf) {
-        if (cpf.matches("\\d{11}")) {  // Validação simples de CPF
+        if (cpf.matches("\\d{11}")) { 
             this.cpf = cpf;
         } else {
             throw new IllegalArgumentException("CPF inválido");
@@ -50,7 +50,7 @@ public abstract class Usuario {
         this.nome = nome;
     }
 
-    // Sobrescrevendo equals e hashCode
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,9 +62,5 @@ public abstract class Usuario {
     @Override
     public int hashCode() {
         return Objects.hash(cpf);
-    }
-
-    public void logout() {
-        // Lógica de logout pode ser implementada no Controller
     }
 }

@@ -72,6 +72,24 @@ public class AtendenteDAO {
         }
     }
 
+    public Atendente readByCPF(String cpf) {
+        EntityManager em = emf.createEntityManager();
+        Atendente at = null;
+
+        try {
+            at = em.createQuery("SELECT a FROM Administrador a WHERE a.cpf = :cpf", Atendente.class)
+                    .setParameter("cpf", cpf)
+                    .getSingleResult();  
+        } catch (NoResultException e) {
+            System.out.println("Atendente não encontrado com CPF: " + cpf);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();  
+        }
+
+        return at;
+    }
     
     public void closeFactory() {
         emf.close();
