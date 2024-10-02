@@ -3,6 +3,7 @@ package Model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import Repository.ClienteDAO;
 
 @Entity
 @Table(name = "vendas")
@@ -68,7 +69,9 @@ public class Venda {
         }
     }
 
-    public void finalizarVenda(Cliente cliente){
+    public void finalizarVenda(){
+        ClienteDAO cc = new ClienteDAO();
+        Cliente cliente = cc.read(cpfCliente);
         for (Produto p : this.produtos) {
             cliente.addPontos(p.getValor());
         }
