@@ -1,13 +1,88 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Repository;
 
-/**
- *
- * @author thaia
- */
+import Model.Produto;
+import Model.Venda;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import java.util.List;
+
 public class VendaDAO {
-    
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pads");
+
+    public void registrarVenda(List<Produto> produtos, String cpf) {
+        EntityManager em = emf.createEntityManager();  
+
+        try {
+            em.getTransaction().begin();
+            Venda venda;
+
+            if (cpf != null && !cpf.isEmpty()) { 
+                venda = new Venda(cpf);
+            } else {
+                venda = new Venda();
+            }
+
+            for (Produto p : produtos) {
+                venda.addProduto(p);
+            }
+
+            em.persist(venda);  
+
+            em.getTransaction().commit();  
+        } catch (Exception e) {
+            em.getTransaction().rollback();  
+            throw e;  
+        } finally {
+            em.close();  
+        }
+    }
+        public Venda buscarPorId(long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.find(Venda.class, id);  
+        } finally {
+            em.close();
+        }
+    }
+        public List<Venda> listarTodas() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT v FROM Venda v", Venda.class).getResultList();  
+        } finally {
+            em.close();
+        }
+    }
+        
+        public void atualizarVenda(Venda venda) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(venda);  
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();  
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+        
+        public void excluirVenda(long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Venda venda = em.find(Venda.class, id); 
+            if (venda != null) {
+                em.remove(venda);  
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();  
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
 }
