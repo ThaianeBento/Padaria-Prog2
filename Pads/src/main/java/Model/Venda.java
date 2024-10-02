@@ -3,7 +3,6 @@ package Model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import Repository.ClienteDAO;
 
 @Entity
 @Table(name = "vendas")
@@ -11,8 +10,13 @@ public class Venda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected long id;
-    private String cpfCliente;
+    private long id;
+
+    // Relacionamento com Cliente em vez de usar cpfCliente diretamente
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
+
     private String metodoPagamento;
 
     // Relacionamento com produtos
@@ -22,46 +26,50 @@ public class Venda {
             joinColumns = @JoinColumn(name = "venda_id"),
             inverseJoinColumns = @JoinColumn(name = "produto_id")
     )
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<>();
 
-    public Venda(String cpf) {
-        this.cpfCliente = cpf;
-        this.produtos = new ArrayList<>();
+    // Construtor vazio exigido pelo JPA
+    public Venda() {}
+
+    // Construtor com cliente
+    public Venda(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Venda() {
-        this.produtos = new ArrayList<>();
-    }
-
-    //  add produto na venda
+    // Método para adicionar produto à venda
     public void addProduto(Produto p) {
         this.produtos.add(p);
     }
 
-    // remover produto da venda
+    // Método para remover produto da venda
     public void removeProduto(Produto p) {
         this.produtos.remove(p);
     }
 
-    public String escolhaPagamento (String metodoPagamento) {
-        switch (metodoPagamento){
+    // Escolher método de pagamento
+    public void setMetodoPagamento(String metodoPagamento) {
+        switch (metodoPagamento) {
             case "1":
-                metodoPagamento = "Cartão de crédito";
+                this.metodoPagamento = "Cartão de crédito";
                 break;
             case "2":
-                metodoPagamento = "Cartão de débito";
+                this.metodoPagamento = "Cartão de débito";
                 break;
             case "3":
-                metodoPagamento = "Dinheiro";
+                this.metodoPagamento = "Dinheiro";
                 break;
+            default:
+                throw new IllegalArgumentException("Método de pagamento inválido.");
         }
+    }
+
+    public String getMetodoPagamento() {
         return metodoPagamento;
     }
 
-    // Imprimir nota fiscal
     public void imprimirNotaFiscal() {
         System.out.println("Nota Fiscal da Venda:");
-        System.out.println("Cliente (CPF): " + this.cpfCliente);
+        System.out.println("Cliente (CPF): " + this.cliente.getCPF());
         System.out.println("Método de pagamento: " + this.metodoPagamento);
         System.out.println("Produtos Comprados:");
         for (Produto p : this.produtos) {
@@ -69,9 +77,7 @@ public class Venda {
         }
     }
 
-    public void finalizarVenda(){
-        ClienteDAO cc = new ClienteDAO();
-        Cliente cliente = cc.read(cpfCliente);
+    public void finalizarVenda() {
         for (Produto p : this.produtos) {
             cliente.addPontos(p.getValor());
         }
@@ -85,12 +91,12 @@ public class Venda {
         this.id = id;
     }
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public List<Produto> getProdutos() {
