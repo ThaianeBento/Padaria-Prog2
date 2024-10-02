@@ -28,25 +28,21 @@ public class Venda {
     )
     private List<Produto> produtos = new ArrayList<>();
 
-    // Construtor vazio exigido pelo JPA
+    
     public Venda() {}
 
-    // Construtor com cliente
     public Venda(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    // Método para adicionar produto à venda
+    
     public void addProduto(Produto p) {
         this.produtos.add(p);
     }
 
-    // Método para remover produto da venda
     public void removeProduto(Produto p) {
         this.produtos.remove(p);
     }
 
-    // Escolher método de pagamento
     public void setMetodoPagamento(String metodoPagamento) {
         switch (metodoPagamento) {
             case "1":
