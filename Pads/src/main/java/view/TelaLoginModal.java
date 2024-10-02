@@ -39,7 +39,6 @@ public class TelaLoginModal extends javax.swing.JDialog {
         txtLogin = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela login");
@@ -55,8 +54,6 @@ public class TelaLoginModal extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Coffee--Streamline-Phosphor.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -70,18 +67,12 @@ public class TelaLoginModal extends javax.swing.JDialog {
                         .addComponent(jLabel1)
                         .addComponent(txtSenha)
                         .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(180, 180, 180))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel3)
-                .addGap(46, 46, 46)
+                .addGap(132, 132, 132)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +158,6 @@ public class TelaLoginModal extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;

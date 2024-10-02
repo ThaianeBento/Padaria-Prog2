@@ -24,25 +24,16 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/E-Commerce-Cart-Monitor--Streamline-Ultimate.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Vendas"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Receipt-1--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico Vendas"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Shopping-Cart-Add--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Iniciar Venda"/>
               </Properties>
               <Events>
@@ -53,17 +44,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Single-Neutral_1--Streamline-Ultimate.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Usuarios"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Single-Neutral-Actions-Add_1--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
@@ -72,9 +57,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Single-Neutral-Actions-View_1--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
             </MenuItem>
@@ -82,17 +64,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Multiple-Neutral-2_1--Streamline-Ultimate (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Multiple-Actions-Add_1--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
@@ -101,9 +77,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Multiple-Actions-View_1--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Consultar "/>
               </Properties>
             </MenuItem>
@@ -111,17 +84,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Products-Shopping-Bags--Streamline-Ultimate.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Produtos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Shopping-Basket-Add--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
@@ -130,9 +97,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Shopping-Basket-Search--Streamline-Ultimate.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
               <Events>
@@ -188,7 +152,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="290" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="294" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

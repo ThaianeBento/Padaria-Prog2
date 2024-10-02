@@ -61,17 +61,14 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGap(0, 294, Short.MAX_VALUE)
         );
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/E-Commerce-Cart-Monitor--Streamline-Ultimate.png"))); // NOI18N
         jMenu3.setText("Vendas");
 
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Receipt-1--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem10.setText("Histórico Vendas");
         jMenu3.add(jMenuItem10);
 
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shopping-Cart-Add--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem11.setText("Iniciar Venda");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,10 +79,8 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Single-Neutral_1--Streamline-Ultimate.png"))); // NOI18N
         jMenu4.setText("Usuarios");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Single-Neutral-Actions-Add_1--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem1.setText("Cadastrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,16 +89,13 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem1);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Single-Neutral-Actions-View_1--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem7.setText("Consultar");
         jMenu4.add(jMenuItem7);
 
         jMenuBar2.add(jMenu4);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Multiple-Neutral-2_1--Streamline-Ultimate (1).png"))); // NOI18N
         jMenu5.setText("Clientes");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Multiple-Actions-Add_1--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem3.setText("Cadastrar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,16 +104,13 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem3);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Multiple-Actions-View_1--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem5.setText("Consultar ");
         jMenu5.add(jMenuItem5);
 
         jMenuBar2.add(jMenu5);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Products-Shopping-Bags--Streamline-Ultimate.png"))); // NOI18N
         jMenu6.setText("Produtos");
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shopping-Basket-Add--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem8.setText("Cadastrar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +119,6 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem8);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shopping-Basket-Search--Streamline-Ultimate.png"))); // NOI18N
         jMenuItem6.setText("Consultar");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
