@@ -3,7 +3,7 @@ package Model;
 
 public class Cliente extends Usuario{
 
-    private int pontos;
+    private double pontos;
 
     public Cliente(String CPF, String nome) {
         super(CPF, nome);
@@ -31,11 +31,15 @@ public class Cliente extends Usuario{
 
 
 
-    public int getPontos() {
+    public double getPontos() {
         return pontos;
     }
 
-    private void setPontos(int pontos) {
+    public double addPontos(double valor){
+        return this.pontos += valor;
+    }
+
+    private void setPontos(double pontos) {
         this.pontos = pontos;
     }
 

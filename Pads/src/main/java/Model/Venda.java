@@ -68,6 +68,12 @@ public class Venda {
         }
     }
 
+    public void finalizarVenda(Cliente cliente){
+        for (Produto p : this.produtos) {
+            cliente.addPontos(p.getValor());
+        }
+    }
+
     public long getId() {
         return id;
     }
