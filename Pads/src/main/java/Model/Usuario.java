@@ -1,36 +1,46 @@
 package Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+import java.util.Objects;
 
 @Entity
-public abstract class Usuario{
+public abstract class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long id;
 
-    protected String CPF;
+    @Column(nullable = false, unique = true)
+    protected String cpf;
+
+    @Column(nullable = false)
     protected String nome;
 
-    public Usuario(String CPF, String nome){
-        this.CPF = CPF;
+    // Construtor vazio para JPA
+    public Usuario() {}
+
+    // Construtor com parâmetros
+    public Usuario(String cpf, String nome) {
+        this.cpf = cpf;
         this.nome = nome;
     }
 
+    // Getters e Setters
     public long getId() {
         return id;
     }
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    } //Fazer if verificador
+    public void setCPF(String cpf) {
+        if (cpf.matches("\\d{11}")) {  // Validação simples de CPF
+            this.cpf = cpf;
+        } else {
+            throw new IllegalArgumentException("CPF inválido");
+        }
+    }
 
     public String getNome() {
         return nome;
@@ -40,8 +50,21 @@ public abstract class Usuario{
         this.nome = nome;
     }
 
-    public void logout(){
-        //voltar para tela de login
+    // Sobrescrevendo equals e hashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return cpf.equals(usuario.cpf);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpf);
+    }
+
+    public void logout() {
+        // Lógica de logout pode ser implementada no Controller
+    }
 }

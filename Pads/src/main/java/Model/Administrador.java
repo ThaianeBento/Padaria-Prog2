@@ -4,8 +4,8 @@ public class Administrador extends Atendente{
 
     public Administrador(String CPF, String nome, String senha) {super(CPF, nome, senha);}
 
-    public Atendente criarAtendente(String CPF, String nome, String senha){
-        return new Atendente(CPF,nome,senha);
+    public Atendente criarAtendente(String cpf, String nome, String senha){
+        return new Atendente(senha,cpf,nome);
     }
 
     public boolean excluirAtendente(String CPF){

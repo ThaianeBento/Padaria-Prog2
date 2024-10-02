@@ -3,8 +3,8 @@ package Model;
 public class Atendente extends Usuario{
     private String senha;
 
-    public Atendente(String senha, String CPF, String nome) {
-        super(CPF, nome);
+    public Atendente(String senha, String cpf, String nome) {
+        super(cpf, nome);
         this.senha = senha;
     }
 

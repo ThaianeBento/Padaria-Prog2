@@ -5,13 +5,13 @@ public class Cliente extends Usuario{
 
     private double pontos;
 
-    public Cliente(String CPF, String nome) {
-        super(CPF, nome);
+    public Cliente(String cpf, String nome) {
+        super(cpf, nome);
     }
 
     @Override
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
     @Override
