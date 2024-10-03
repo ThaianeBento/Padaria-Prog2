@@ -42,7 +42,7 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setClosable(true);
-        setTitle("Cadastro Cliente");
+        setTitle("Cadastro Atendente");
 
         jLabel1.setText("Nome:");
 
