@@ -29,10 +29,12 @@ view\TelaConsultarClient$1.class
 Model\Venda.class
 view\viewJTable$4.class
 view\TelaCadastroClient$1.class
+view\TelaCadastroProduto$2.class
 view\TelaPrincipalMDI$5.class
 Model\Cliente.class
 Model\Produto.class
 view\viewJTable$7.class
+Controller\produtoController.class
 view\TelaCadastroClient.class
 view\TelaVenda$2.class
 view\viewJTable.class
