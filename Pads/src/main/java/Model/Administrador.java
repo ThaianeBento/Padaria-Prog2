@@ -16,7 +16,7 @@ public class Administrador extends Atendente {
     public Atendente criarAtendente(String cpf, String nome, String senha) {
         Atendente atendente = new Atendente(senha, cpf, nome);
         AtendenteDAO atendenteDAO = new AtendenteDAO();
-        atendenteDAO.gravar(atendente);
+        atendenteDAO.create(atendente);
         return atendente;
     }
 
@@ -24,7 +24,7 @@ public class Administrador extends Atendente {
         AtendenteDAO atendenteDAO = new AtendenteDAO();
         Atendente atendente = atendenteDAO.readByCPF(CPF);
         if (atendente != null) {
-            atendenteDAO.remover(CPF);
+            atendenteDAO.remove(CPF);
             return true;
         }
         return false;

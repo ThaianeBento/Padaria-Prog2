@@ -12,7 +12,7 @@ public class VendaDAO {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pads");
 
     
-    public void registrarVenda(List<Produto> produtos, Cliente cliente) {
+    public void create(List<Produto> produtos, Cliente cliente) {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -59,7 +59,7 @@ public class VendaDAO {
     }
 
     
-    public void atualizarVenda(Venda venda) {
+    public void update(Venda venda) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -74,7 +74,7 @@ public class VendaDAO {
     }
 
    
-    public void excluirVenda(long id) {
+    public void remove(long id) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

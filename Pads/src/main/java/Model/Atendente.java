@@ -54,7 +54,7 @@ public class Atendente extends Usuario {
             venda.addProduto(produto);
         }
         VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.registrarVenda(produtos, cliente);
+        vendaDAO.create(produtos, cliente);
         return venda;
     }
 

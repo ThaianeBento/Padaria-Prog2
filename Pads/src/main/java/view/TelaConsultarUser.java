@@ -4,7 +4,12 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
+import Controller.AdministradorController;
+import Controller.AtendenteController;
+import Controller.ClienteController;
+import Model.Usuario;
+
+import javax.swing.*;
 
 /**
  *
@@ -85,13 +90,28 @@ public class TelaConsultarUser extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
-        if (txtCpfClient.getText().equals("46759122810")){
-            JOptionPane.showMessageDialog(null, "Usuário Cadastrado ");
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+        String cpf = txtCpfClient.getText();
+        Usuario user = null;
+        try{
+        ClienteController cc = new ClienteController();
+        user = cc.buscarClientePorCPF(cpf);
+        } catch (Exception e){
+            try{
+                AtendenteController ac = new AtendenteController();
+                user = ac.buscarAtendentePorCPF(cpf);
+            } catch (Exception e1){
+                try{
+                AdministradorController ad = new AdministradorController();
+                user = ad.buscarAdministradorPorCPF(cpf);
+            } catch (Exception e2){
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
         }
-        
+
+        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user);
+
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

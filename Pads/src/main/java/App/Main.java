@@ -1,9 +1,10 @@
 package App;
 
+import view.TelaPrincipalMDI;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
-        
+        new TelaPrincipalMDI().setVisible(true);
         
         }
 

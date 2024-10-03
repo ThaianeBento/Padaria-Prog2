@@ -4,7 +4,7 @@
  */
 package view;
 
-import Controller.produtoController;
+import Controller.ProdutoController;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,8 +16,10 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaCadastroUsuario
      */
+    ProdutoController pc;
     public TelaCadastroProduto() {
         initComponents();
+        pc = new ProdutoController();
     }
 
     /**
@@ -90,13 +92,16 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+        try{
         String nome = txtNome.getText();
         double valor = Double.parseDouble(txtValor.getText());
 
-        produtoController.criarProduto(nome, valor);
+        pc.criarProduto(nome, valor);
 
         JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
         limparCampos();
     }
 

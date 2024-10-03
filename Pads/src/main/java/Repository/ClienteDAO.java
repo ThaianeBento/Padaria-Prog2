@@ -81,7 +81,7 @@ public class ClienteDAO {
                     .setParameter("CPF", cpf)
                     .getSingleResult();
         } catch (NoResultException e) {
-            System.out.println("Cliente não encontrado com CPF: " + cpf);
+            throw new NoResultException("Cliente não encontrado com CPF: " + cpf);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

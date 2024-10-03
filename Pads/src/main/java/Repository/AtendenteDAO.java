@@ -15,7 +15,7 @@ public class AtendenteDAO {
     }
 
     
-    public void gravar(Atendente atendente) {
+    public void create(Atendente atendente) {
         EntityManager em = emf.createEntityManager();  // Criar EntityManager para cada operação
         try {
             em.getTransaction().begin();
@@ -30,7 +30,7 @@ public class AtendenteDAO {
     }
 
  
-    public Atendente remover(String CPF) {
+    public Atendente remove(String CPF) {
         EntityManager em = emf.createEntityManager();
         Atendente at = null;
 
@@ -58,7 +58,7 @@ public class AtendenteDAO {
     }
 
     
-    public void atualizar(Atendente a) {
+    public void update(Atendente a) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

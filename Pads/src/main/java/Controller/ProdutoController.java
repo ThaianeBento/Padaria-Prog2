@@ -4,15 +4,21 @@ import Model.Produto;
 import Repository.ProdutoDAO;
 
 
-public class produtoController {
+public class ProdutoController {
 
     private ProdutoDAO produtoDAO;
 
-    public produtoController() {
+    public ProdutoController() {
         produtoDAO = new ProdutoDAO();
     }
 
     public void criarProduto(String nome, double valor) {
+        if(valor <= 0){
+            throw new IllegalArgumentException("Valor do produto deve ser maior que zero");
+        }
+        if(nome == null || nome.isEmpty()){
+            throw new IllegalArgumentException("Nome do produto não pode ser vazio");
+        }
         Produto produto = new Produto(nome, valor);
         produtoDAO.create(produto);
     }
