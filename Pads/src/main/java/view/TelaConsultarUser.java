@@ -5,7 +5,7 @@
 package view;
 
 import Controller.ClienteController;
-import Model.Usuario;
+import Model.Cliente;
 
 import javax.swing.*;
 
@@ -89,11 +89,11 @@ public class TelaConsultarUser extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String cpf = txtCpfClient.getText();
-        Usuario user = null;
+        Cliente user = null;
         try{
         ClienteController cc = new ClienteController();
         user = cc.buscarClientePorCPF(cpf);
-        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user.getNome());
+        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user.getNome() + "\nPontos: " + user.getPontos());
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Usuário não encontrado");
         }
