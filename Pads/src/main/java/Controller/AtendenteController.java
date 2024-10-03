@@ -30,9 +30,7 @@ public class AtendenteController {
 
     public void create(String nome, String cpf, String senha)  {
         cpf = validarCpf(cpf);
-        if(atendenteDAO.readByCPF(cpf) != null){
-            throw new CpfUsedException("Cpf já está cadastrado.");
-        }
+
         if(senha == null || senha.isEmpty()){
             throw new IllegalArgumentException("Senha não pode ser vazia.");
         }

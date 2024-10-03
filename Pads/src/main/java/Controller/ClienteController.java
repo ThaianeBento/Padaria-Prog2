@@ -30,9 +30,7 @@ public class ClienteController {
 
     public void create(String nome, String cpf)  {
         cpf = validarCpf(cpf);
-        if(clienteDAO.read(cpf) != null){
-            throw new CpfUsedException("Cpf já está cadastrado.");
-        }
+
         Cliente cliente = new Cliente(cpf, nome);
         clienteDAO.create(cliente);
     }

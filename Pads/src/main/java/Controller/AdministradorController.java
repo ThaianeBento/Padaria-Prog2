@@ -30,9 +30,6 @@ public class AdministradorController {
 
     public void cadastrarAdministrador(String nome, String cpf, String email, String senha){
         cpf = validarCpf(cpf);
-        if (administradorDAO.readByCPF(cpf) != null){
-            throw new CpfUsedException("CPF já cadastrado.");
-        }
         if(senha == null || senha.isEmpty()){
             throw new IllegalArgumentException("Senha não pode ser vazia.");
         }

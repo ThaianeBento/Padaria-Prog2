@@ -23,7 +23,7 @@ public class AtendenteDAO {
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
-            e.printStackTrace();
+            throw new RuntimeException("Esse cpf já foi usado.");
         } finally {
             em.close();  // Fecha o EntityManager após cada operação
         }
