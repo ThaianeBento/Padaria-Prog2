@@ -12,7 +12,7 @@ public class VendaDAO {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pads");
 
     
-    public void create(List<Produto> produtos, Cliente cliente, String metodoPagamento) {
+    public void create(List<Produto> produtos, Cliente cliente, String metodoPagamento, double valorTotal) {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -26,6 +26,7 @@ public class VendaDAO {
                 venda.addProduto(p);
             }
             venda.setMetodoPagamento(metodoPagamento);
+            venda.setValorTotal(valorTotal);
 
             
             em.persist(venda);

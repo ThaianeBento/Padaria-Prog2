@@ -17,7 +17,17 @@ public class Venda {
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     private String metodoPagamento;
+
+    private Double valorTotal;
 
     // Relacionamento com produtos
     @ManyToMany
@@ -71,6 +81,7 @@ public class Venda {
         for (Produto p : this.produtos) {
             System.out.println(p.toString() + "\n");
         }
+        System.out.println("Valor total: " + this.valorTotal);
     }
 
     public void finalizarVenda() {

@@ -343,7 +343,7 @@ public class viewJTable extends javax.swing.JInternalFrame {
         Cliente c = cc.buscarClientePorCPF(txtCpf.getText());
         c.addPontos(Double.parseDouble(txtTotal.getText())/20);
         cc.update(c);
-        vc.create(produtos, c, String.valueOf(jComboBox1.getSelectedIndex()+1));
+        vc.create(produtos, c, String.valueOf(jComboBox1.getSelectedIndex()+1), valor);
         JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso");}
         catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());

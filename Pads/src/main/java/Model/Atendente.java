@@ -48,13 +48,13 @@ public class Atendente extends Usuario {
         return false;
     }
 
-    public Venda registrarVenda(Cliente cliente, List<Produto> produtos, String metodoPagamento) {
+    public Venda registrarVenda(Cliente cliente, List<Produto> produtos, String metodoPagamento, double valorTotal) {
         Venda venda = new Venda(cliente);
         for (Produto produto : produtos) {
             venda.addProduto(produto);
         }
         VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.create(produtos, cliente, metodoPagamento);
+        vendaDAO.create(produtos, cliente, metodoPagamento, valorTotal);
         return venda;
     }
 

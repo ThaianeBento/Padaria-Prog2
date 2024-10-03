@@ -4,7 +4,10 @@
  */
 package view;
 
+import Controller.ProdutoController;
 import Model.Produto;
+
+import javax.swing.*;
 
 /**
  *
@@ -84,8 +87,14 @@ public class TelaConsultarProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCpfClientActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Produto p = null;
-        String cpf = txtCpfClient.getText();
+        try{
+        ProdutoController pc = new ProdutoController();
+        Produto p = pc.buscarProdutoPorId(Long.parseLong(txtCpfClient.getText()));
+        JOptionPane.showMessageDialog(null,"Produto encontrado: " + p.getNome());
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
     
