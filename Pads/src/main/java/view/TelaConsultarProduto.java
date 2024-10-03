@@ -15,12 +15,12 @@ import javax.swing.*;
  *
  * @author Aline
  */
-public class TelaConsultarClient extends javax.swing.JInternalFrame {
+public class TelaConsultarProduto extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaConsultarClient
      */
-    public TelaConsultarClient() {
+    public TelaConsultarProduto() {
         initComponents();
     }
 
@@ -108,7 +108,7 @@ public class TelaConsultarClient extends javax.swing.JInternalFrame {
 //            }
 //        }
 //
-//        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user);
+//        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user + "Valor do produto: + valor???);
 //
 //
 //        }

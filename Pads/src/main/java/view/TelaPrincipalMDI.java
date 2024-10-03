@@ -86,6 +86,11 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         jMenu4.add(jMenuItem1);
 
         jMenuItem2.setText("Consultar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem2);
 
         jMenuBar2.add(jMenu4);
@@ -187,6 +192,13 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
          jDesktopPane1.add(telaCliente);
          telaCliente.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        TelaConsultarUser telaConsu = new TelaConsultarUser();
+        jDesktopPane1.add(telaConsu);
+        telaConsu.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

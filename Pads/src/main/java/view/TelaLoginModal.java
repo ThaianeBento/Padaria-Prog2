@@ -104,6 +104,12 @@ public class TelaLoginModal extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){
           JOptionPane.showMessageDialog(null, "Bem vindo");  
+          
+          
+          
+          TelaPrincipalMDI telaPrincipal = new TelaPrincipalMDI();
+          this.dispose();
+          telaPrincipal.setVisible(true);
            
             
             
