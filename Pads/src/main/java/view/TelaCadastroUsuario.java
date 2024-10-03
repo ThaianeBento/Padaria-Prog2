@@ -4,6 +4,10 @@
  */
 package view;
 
+import Controller.AtendenteController;
+
+import javax.swing.*;
+
 /**
  *
  * @author Aline
@@ -108,7 +112,22 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try{
+            String nome = jTextField1.getText();
+            String cpf = jFormattedTextField1.getText();
+            String senha = new String(jPasswordField1.getPassword());
+            String confirmarSenha = new String(jPasswordField2.getPassword());
+
+            if (senha.equals(confirmarSenha)) {
+                AtendenteController atendenteController = new AtendenteController();
+                atendenteController.create(nome, cpf, senha);
+                JOptionPane.showMessageDialog(null, "Atendente cadastrado com sucesso.");
+            } else {
+                JOptionPane.showMessageDialog(null, "As senhas não conferem.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -46,10 +46,10 @@ public class Venda {
     public void setMetodoPagamento(String metodoPagamento) {
         switch (metodoPagamento) {
             case "1":
-                this.metodoPagamento = "Cartão de crédito";
+                this.metodoPagamento = "Pix";
                 break;
             case "2":
-                this.metodoPagamento = "Cartão de débito";
+                this.metodoPagamento = "Cartão";
                 break;
             case "3":
                 this.metodoPagamento = "Dinheiro";

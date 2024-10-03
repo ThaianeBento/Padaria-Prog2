@@ -4,12 +4,7 @@
  */
 package view;
 
-import Controller.AdministradorController;
-import Controller.AtendenteController;
-import Controller.ClienteController;
-import Model.Usuario;
-
-import javax.swing.*;
+import Model.Produto;
 
 /**
  *
@@ -89,29 +84,9 @@ public class TelaConsultarProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCpfClientActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Tem que mudar isso ae, mas a mesma coisa
-//        String cpf = txtCpfClient.getText();
-//        Usuario user = null;
-//        try{
-//        ClienteController cc = new ClienteController();
-//        user = cc.buscarClientePorCPF(cpf);
-//        } catch (Exception e){
-//            try{
-//                AtendenteController ac = new AtendenteController();
-//                user = ac.buscarAtendentePorCPF(cpf);
-//            } catch (Exception e1){
-//                try{
-//                AdministradorController ad = new AdministradorController();
-//                user = ad.buscarAdministradorPorCPF(cpf);
-//            } catch (Exception e2){
-//                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
-//            }
-//        }
-//
-//        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user + "Valor do produto: + valor???);
-//
-//
-//        }
+        Produto p = null;
+        String cpf = txtCpfClient.getText();
+
     }//GEN-LAST:event_jButton1ActionPerformed
     
 

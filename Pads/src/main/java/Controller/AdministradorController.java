@@ -19,15 +19,17 @@ public class AdministradorController {
         administradorDAO = new AdministradorDAO();
     }
 
-    public void validarCpf(String cpf){
-        String emailRegex = "^[0-9]{11}$";
-        if(!cpf.matches(emailRegex)){
-            throw new IllegalArgumentException("Cpf deve ter 11 dígitos.");
+    public String validarCpf(String cpf){
+        cpf = cpf.replaceAll("[.-]", "");
+        String cpfRegex = "^[0-9]{11}$";
+        if(!cpf.matches(cpfRegex)){
+            throw new IllegalArgumentException("Cpf deve ter 11 dígitos. " + cpf);
         }
+        return cpf;
     }
 
     public void cadastrarAdministrador(String nome, String cpf, String email, String senha){
-        validarCpf(cpf);
+        cpf = validarCpf(cpf);
         if (administradorDAO.readByCPF(cpf) != null){
             throw new CpfUsedException("CPF já cadastrado.");
         }

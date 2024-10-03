@@ -77,7 +77,7 @@ public class AtendenteDAO {
         Atendente at = null;
 
         try {
-            at = em.createQuery("SELECT a FROM Administrador a WHERE a.cpf = :cpf", Atendente.class)
+            at = em.createQuery("SELECT a FROM Atendente a WHERE a.cpf = :cpf", Atendente.class)
                     .setParameter("cpf", cpf)
                     .getSingleResult();  
         } catch (NoResultException e) {

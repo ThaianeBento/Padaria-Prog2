@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Atendente extends Usuario {
 
-    @Column(nullable = false)
+    @Column
     private String senha;
 
     public Atendente() {}
@@ -48,13 +48,13 @@ public class Atendente extends Usuario {
         return false;
     }
 
-    public Venda registrarVenda(Cliente cliente, List<Produto> produtos) {
+    public Venda registrarVenda(Cliente cliente, List<Produto> produtos, String metodoPagamento) {
         Venda venda = new Venda(cliente);
         for (Produto produto : produtos) {
             venda.addProduto(produto);
         }
         VendaDAO vendaDAO = new VendaDAO();
-        vendaDAO.create(produtos, cliente);
+        vendaDAO.create(produtos, cliente, metodoPagamento);
         return venda;
     }
 

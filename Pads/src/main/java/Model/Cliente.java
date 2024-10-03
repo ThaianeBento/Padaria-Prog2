@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 @Entity
 public class Cliente extends Usuario {
 
-    @Column(nullable = false)
+    @Column
     private double pontos;
 
     public Cliente() {}

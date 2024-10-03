@@ -78,7 +78,7 @@ public class ClienteDAO {
 
         try {
             cliente = em.createQuery("SELECT c FROM Cliente c WHERE c.cpf = :cpf", Cliente.class)
-                    .setParameter("CPF", cpf)
+                    .setParameter("cpf", cpf)
                     .getSingleResult();
         } catch (NoResultException e) {
             throw new NoResultException("Cliente não encontrado com CPF: " + cpf);

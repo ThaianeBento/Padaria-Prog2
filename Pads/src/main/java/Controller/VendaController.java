@@ -14,14 +14,14 @@ public class VendaController {
         vendaDAO = new VendaDAO();
     }
 
-    public void create(List<Produto> produtos, Cliente cliente){
+    public void create(List<Produto> produtos, Cliente cliente, String metodoPagamento){
         if(produtos.isEmpty()){
             throw new IllegalArgumentException("Venda deve ter pelo menos um produto.");
         }
         if(cliente == null){
             throw new IllegalArgumentException("Venda deve ter um cliente.");
         }
-        vendaDAO.create(produtos, cliente);
+        vendaDAO.create(produtos, cliente, metodoPagamento);
     }
 
     public Venda buscarVendaPorId(long id){
