@@ -176,7 +176,7 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
-        TelaVenda telaVend = new TelaVenda();
+        viewJTable telaVend = new viewJTable();
         jDesktopPane1.add(telaVend);
         telaVend.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
