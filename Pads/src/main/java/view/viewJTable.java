@@ -313,10 +313,20 @@ public class viewJTable extends javax.swing.JInternalFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
-//        if(jTProdutos.getSelectedRow() != -1){
-//            jTProdutos.setValueAt(txtId.getText(), jTProdutos.getSelectedRow(), 0);
-//            jTProdutos.setValueAt(txtQtd.getText(), jTProdutos.getSelectedRow(), 1);
-//        }
+        if(jTProdutos.getSelectedRow() != -1){
+            DefaultTableModel dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
+            Produto p = produtos.get(jTProdutos.getSelectedRow());
+            valor -= p.getValor();
+            ProdutoController pc = new ProdutoController();
+            Produto paux = pc.buscarProdutoPorId(Integer.parseInt(txtId.getText()));
+            p.setValor(paux.getValor() * Integer.parseInt(txtQtd.getText()));
+            valor += p.getValor();
+            txtTotal.setText(String.valueOf(valor));
+            dtmProdutos.setValueAt(txtId.getText(), jTProdutos.getSelectedRow(), 0);
+            dtmProdutos.setValueAt(p.getNome(), jTProdutos.getSelectedRow(), 1);
+            dtmProdutos.setValueAt(p.getValor(), jTProdutos.getSelectedRow(), 2);
+            dtmProdutos.setValueAt(txtQtd.getText(), jTProdutos.getSelectedRow(), 3);
+        }
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
