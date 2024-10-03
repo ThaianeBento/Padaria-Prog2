@@ -2,6 +2,7 @@ view\TelaLoginModal.class
 view\viewJTable$9.class
 view\TelaLoginModal$2.class
 view\TelaVenda.class
+view\TelaConsultarUser$2.class
 view\TelaVenda$1.class
 view\viewJTable$2.class
 Repository\VendaDAO.class
@@ -15,6 +16,7 @@ view\TelaPrincipalMDI$6.class
 Model\Usuario.class
 Model\Administrador.class
 view\viewJTable$8.class
+view\TelaConsultarUser.class
 view\TelaVenda$5.class
 Repository\AdministradorDAO.class
 view\TelaPrincipalMDI.class
@@ -38,6 +40,7 @@ view\TelaConsultarClient.class
 view\viewJTable$3.class
 view\TelaPrincipalMDI$1.class
 Repository\AtendenteDAO.class
+view\TelaConsultarUser$1.class
 view\TelaConsultarClient$2.class
 view\TelaLoginModal$2$1.class
 Model\Atendente.class

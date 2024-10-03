@@ -32,11 +32,10 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -66,9 +65,6 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
 
         jMenu3.setText("Vendas");
 
-        jMenuItem10.setText("Histórico Vendas");
-        jMenu3.add(jMenuItem10);
-
         jMenuItem11.setText("Iniciar Venda");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +85,8 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem1);
 
-        jMenuItem7.setText("Consultar");
-        jMenu4.add(jMenuItem7);
+        jMenuItem2.setText("Consultar");
+        jMenu4.add(jMenuItem2);
 
         jMenuBar2.add(jMenu4);
 
@@ -239,12 +235,11 @@ public class TelaPrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
