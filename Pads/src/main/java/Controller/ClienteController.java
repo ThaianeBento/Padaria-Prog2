@@ -19,15 +19,17 @@ public class ClienteController {
         clienteDAO = new ClienteDAO();
     }
 
-    public void validarCpf(String cpf){
-        String emailRegex = "^[0-9]{11}$";
-        if(!cpf.matches(emailRegex)){
+    public String validarCpf(String cpf){
+        cpf = cpf.replaceAll("[.-]", "");
+        String cpfRegex = "^[0-9]{11}$";
+        if(!cpf.matches(cpfRegex)){
             throw new IllegalArgumentException("Cpf deve ter 11 dígitos.");
         }
+        return cpf;
     }
 
     public void create(String nome, String cpf)  {
-        validarCpf(cpf);
+        cpf = validarCpf(cpf);
         if(clienteDAO.read(cpf) != null){
             throw new CpfUsedException("Cpf já está cadastrado.");
         }
@@ -44,6 +46,10 @@ public class ClienteController {
         if(cliente != null){
             clienteDAO.remove(cpf);
         }
+    }
+
+    public void update(Cliente cliente){
+        clienteDAO.update(cliente);
     }
     
 }

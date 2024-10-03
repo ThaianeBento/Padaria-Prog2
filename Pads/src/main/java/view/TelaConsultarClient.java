@@ -4,10 +4,8 @@
  */
 package view;
 
-import Controller.AdministradorController;
 import Controller.AtendenteController;
-import Controller.ClienteController;
-import Model.Usuario;
+import Model.Atendente;
 
 import javax.swing.*;
 
@@ -89,30 +87,16 @@ public class TelaConsultarClient extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCpfClientActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Tem que mudar isso ae, mas a mesma coisa
-//        String cpf = txtCpfClient.getText();
-//        Usuario user = null;
-//        try{
-//        ClienteController cc = new ClienteController();
-//        user = cc.buscarClientePorCPF(cpf);
-//        } catch (Exception e){
-//            try{
-//                AtendenteController ac = new AtendenteController();
-//                user = ac.buscarAtendentePorCPF(cpf);
-//            } catch (Exception e1){
-//                try{
-//                AdministradorController ad = new AdministradorController();
-//                user = ad.buscarAdministradorPorCPF(cpf);
-//            } catch (Exception e2){
-//                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
-//            }
-//        }
-//
-//        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user);
-//
-//
-//        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String cpf = txtCpfClient.getText();
+        Atendente atendente = null;
+        try{
+        AtendenteController ac = new AtendenteController();
+        atendente = ac.buscarAtendentePorCPF(cpf);
+        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + atendente.getNome());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -120,4 +104,5 @@ public class TelaConsultarClient extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtCpfClient;
     // End of variables declaration//GEN-END:variables
-}
+    }
+

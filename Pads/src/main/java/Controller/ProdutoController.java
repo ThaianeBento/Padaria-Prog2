@@ -23,6 +23,10 @@ public class ProdutoController {
         produtoDAO.create(produto);
     }
 
+    public Produto buscarProdutoPorId(long id) {
+        return produtoDAO.readById(id);
+    }
+
     public Produto buscarProdutoPorNome(String nome) {
         return produtoDAO.readByNome(nome);
     }

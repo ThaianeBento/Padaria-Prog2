@@ -4,7 +4,11 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
+import Controller.AdministradorController;
+import Controller.AtendenteController;
+import Model.Atendente;
+
+import javax.swing.*;
 
 /**
  *
@@ -101,12 +105,22 @@ public class TelaLoginModal extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){
-          JOptionPane.showMessageDialog(null, "Bem vindo");  
-          
-          
-          
+        Atendente user = null;
+        try{
+            login = txtLogin.getText();
+            AtendenteController ac = new AtendenteController();
+            user = ac.buscarAtendentePorCPF(login);
+        } catch (Exception e){
+            try{
+                AdministradorController ad = new AdministradorController();
+                user = ad.buscarAdministradorPorCPF(login);
+            } catch (Exception e1){
+                JOptionPane.showMessageDialog(null, "Erro ao capturar dados");
+            }
+
+        }
+        if(txtSenha.getText().equals(user.getSenha())){
+          JOptionPane.showMessageDialog(null, "Bem vindo");
           TelaPrincipalMDI telaPrincipal = new TelaPrincipalMDI();
           this.dispose();
           telaPrincipal.setVisible(true);

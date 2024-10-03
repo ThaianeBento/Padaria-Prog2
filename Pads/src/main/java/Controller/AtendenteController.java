@@ -19,15 +19,17 @@ public class AtendenteController {
         atendenteDAO = new AtendenteDAO();
     }
 
-    public void validarCpf(String cpf){
-        String emailRegex = "^[0-9]{11}$";
-        if(!cpf.matches(emailRegex)){
-            throw new IllegalArgumentException("Cpf deve ter 11 dígitos.");
+    public String validarCpf(String cpf){
+        cpf = cpf.replaceAll("[.-]", "");
+        String cpfRegex = "^[0-9]{11}$";
+        if(!cpf.matches(cpfRegex)){
+            throw new IllegalArgumentException("Cpf deve ter 11 dígitos. " + cpf);
         }
+        return cpf;
     }
 
     public void create(String nome, String cpf, String senha)  {
-        validarCpf(cpf);
+        cpf = validarCpf(cpf);
         if(atendenteDAO.readByCPF(cpf) != null){
             throw new CpfUsedException("Cpf já está cadastrado.");
         }
@@ -37,12 +39,16 @@ public class AtendenteController {
         if(nome == null || nome.isEmpty()){
             throw new IllegalArgumentException("Nome não pode ser vazio.");
         }
-        Atendente atendente = new Atendente(cpf, nome, senha);
+        Atendente atendente = new Atendente(senha, cpf, nome);
         atendenteDAO.create(atendente);
     }
 
     public Atendente buscarAtendentePorCPF(String cpf){
-        return atendenteDAO.readByCPF(cpf);
+        Atendente atendente = atendenteDAO.readByCPF(cpf);
+        if(atendente == null){
+            throw new IllegalArgumentException("Atendente não encontrado.");
+        }
+        return atendente;
     }
 
     public void excluirAtendente(String cpf){

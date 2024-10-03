@@ -5,9 +5,17 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
+import Controller.ClienteController;
+import Controller.ProdutoController;
+import Controller.VendaController;
+import Model.Cliente;
+import Model.Produto;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,10 +26,15 @@ public class viewJTable extends javax.swing.JInternalFrame {
     /**
      * Creates new form viewJTable
      */
+
+    private final List<Produto> produtos = new ArrayList<>();
+
+    private double valor = 0;
     public viewJTable() {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
+        txtTotal.setText(String.valueOf(valor));
     }
 
     /**
@@ -255,8 +268,15 @@ public class viewJTable extends javax.swing.JInternalFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         DefaultTableModel dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
-        Object[] dados = {txtId.getText(), "Vem do banco", "Vem do BAnco", txtQtd.getText()};
+        ProdutoController pc = new ProdutoController();
+        Produto p = pc.buscarProdutoPorId(Integer.parseInt(txtId.getText()));
+        p.setValor(p.getValor() * Integer.parseInt(txtQtd.getText()));
+        valor += p.getValor();
+        txtTotal.setText(String.valueOf(valor));
+        Object[] dados = {txtId.getText(), p.getNome(), p.getValor(), txtQtd.getText()};
         dtmProdutos.addRow(dados);
+        produtos.add(p);
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -265,6 +285,10 @@ public class viewJTable extends javax.swing.JInternalFrame {
 //        System.out.println("Linha selecionada" + jTProdutos.getSelectedRow()); 
         if(jTProdutos.getSelectedRow() != -1){
             DefaultTableModel dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
+            Produto p = produtos.get(jTProdutos.getSelectedRow());
+            valor -= p.getValor() ;
+            txtTotal.setText(String.valueOf(valor));
+            produtos.remove(jTProdutos.getSelectedRow());
             dtmProdutos.removeRow(jTProdutos.getSelectedRow());
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um produto para Excluir");
@@ -273,25 +297,35 @@ public class viewJTable extends javax.swing.JInternalFrame {
 
     private void jTProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTProdutosMouseClicked
         // TODO add your handling code here:
-        if(jTProdutos.getSelectedRow() != -1){
-            txtId.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0).toString());
-            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-        }
+//        if(jTProdutos.getSelectedRow() != -1){
+//            txtId.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0).toString());
+//            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
+//        }
     }//GEN-LAST:event_jTProdutosMouseClicked
 
     private void jTProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTProdutosKeyReleased
         // TODO add your handling code here:
-        if(jTProdutos.getSelectedRow() != -1){
-            txtId.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0).toString());
-            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
-        }
+//        if(jTProdutos.getSelectedRow() != -1){
+//            txtId.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 0).toString());
+//            txtQtd.setText(jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1).toString());
+//        }
     }//GEN-LAST:event_jTProdutosKeyReleased
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         if(jTProdutos.getSelectedRow() != -1){
-            jTProdutos.setValueAt(txtId.getText(), jTProdutos.getSelectedRow(), 0);
-            jTProdutos.setValueAt(txtQtd.getText(), jTProdutos.getSelectedRow(), 1);
+            DefaultTableModel dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
+            Produto p = produtos.get(jTProdutos.getSelectedRow());
+            valor -= p.getValor();
+            ProdutoController pc = new ProdutoController();
+            Produto paux = pc.buscarProdutoPorId(Integer.parseInt(txtId.getText()));
+            p.setValor(paux.getValor() * Integer.parseInt(txtQtd.getText()));
+            valor += p.getValor();
+            txtTotal.setText(String.valueOf(valor));
+            dtmProdutos.setValueAt(txtId.getText(), jTProdutos.getSelectedRow(), 0);
+            dtmProdutos.setValueAt(p.getNome(), jTProdutos.getSelectedRow(), 1);
+            dtmProdutos.setValueAt(p.getValor(), jTProdutos.getSelectedRow(), 2);
+            dtmProdutos.setValueAt(txtQtd.getText(), jTProdutos.getSelectedRow(), 3);
         }
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
@@ -302,6 +336,17 @@ public class viewJTable extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
+        VendaController vc = new VendaController();
+        ClienteController cc = new ClienteController();
+        Cliente c = cc.buscarClientePorCPF(txtCpf.getText());
+        c.addPontos(Double.parseDouble(txtTotal.getText())/20);
+        cc.update(c);
+        vc.create(produtos, c, String.valueOf(jComboBox1.getSelectedIndex()+1));
+        JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso");}
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

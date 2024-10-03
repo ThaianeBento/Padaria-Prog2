@@ -4,8 +4,6 @@
  */
 package view;
 
-import Controller.AdministradorController;
-import Controller.AtendenteController;
 import Controller.ClienteController;
 import Model.Usuario;
 
@@ -95,24 +93,12 @@ public class TelaConsultarUser extends javax.swing.JInternalFrame {
         try{
         ClienteController cc = new ClienteController();
         user = cc.buscarClientePorCPF(cpf);
+        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user.getNome());
         } catch (Exception e){
-            try{
-                AtendenteController ac = new AtendenteController();
-                user = ac.buscarAtendentePorCPF(cpf);
-            } catch (Exception e1){
-                try{
-                AdministradorController ad = new AdministradorController();
-                user = ad.buscarAdministradorPorCPF(cpf);
-            } catch (Exception e2){
-                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
-            }
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado");
         }
-
-        JOptionPane.showMessageDialog(null, "Usuário Cadastrado: " + user);
-
-
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    //GEN-LAST:event_jButton1ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

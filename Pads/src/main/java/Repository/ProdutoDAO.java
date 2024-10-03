@@ -48,6 +48,23 @@ public class ProdutoDAO {
         return produto;
 }
 
+public Produto readById(long id) {
+    EntityManager em = emf.createEntityManager();
+    Produto produto = null;
+
+    try {
+        produto = em.find(Produto.class, id);
+    } catch (NoResultException e) {
+        System.out.println("Produto não encontrado com id: " + id);
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        em.close();
+    }
+
+    return produto;
+}
+
 
     
     public List<Produto> listarTodos() {
