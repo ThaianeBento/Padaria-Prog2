@@ -34,6 +34,7 @@ Model\Cliente.class
 Model\Produto.class
 view\TelaConsultarProduto$2.class
 view\viewJTable$7.class
+view\TelaRecibo.class
 view\TelaCadastroClient.class
 view\TelaPrincipalMDI$8.class
 view\viewJTable.class
