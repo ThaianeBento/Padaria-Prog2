@@ -55,7 +55,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Insira o CPF:"/>
+        <Property name="text" type="java.lang.String" value="Insira o ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCpfClient">

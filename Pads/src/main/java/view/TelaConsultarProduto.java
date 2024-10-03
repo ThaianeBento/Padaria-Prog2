@@ -34,7 +34,7 @@ public class TelaConsultarProduto extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jLabel1.setText("Insira o CPF:");
+        jLabel1.setText("Insira o ID:");
 
         txtCpfClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

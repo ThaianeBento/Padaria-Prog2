@@ -65,7 +65,8 @@ public class viewJTable extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("ID produto");
 
