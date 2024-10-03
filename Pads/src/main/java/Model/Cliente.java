@@ -27,4 +27,8 @@ public class Cliente extends Usuario {
     public double addPontos(double valor) {
         return this.pontos += valor;
     }
+
+    public void removePontos(double valor) {
+        this.pontos -= valor;
+    }
 }

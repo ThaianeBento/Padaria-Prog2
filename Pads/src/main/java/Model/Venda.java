@@ -73,15 +73,17 @@ public class Venda {
         return metodoPagamento;
     }
 
-    public void imprimirNotaFiscal() {
-        System.out.println("Nota Fiscal da Venda:");
-        System.out.println("Cliente (CPF): " + this.cliente.getCPF());
-        System.out.println("Método de pagamento: " + this.metodoPagamento);
-        System.out.println("Produtos Comprados:");
+    public String imprimirNotaFiscal() {
+        StringBuilder message = new StringBuilder();
+        message.append("Nota Fiscal da Venda:\n");
+        message.append("Cliente (CPF): ").append(this.cliente.getCPF()).append("\n");
+        message.append("Método de pagamento: ").append(this.metodoPagamento).append("\n");
+        message.append("Produtos Comprados: \n");
         for (Produto p : this.produtos) {
-            System.out.println(p.toString() + "\n");
+            message.append(p.toString()).append("\n");
         }
-        System.out.println("Valor total: " + this.valorTotal);
+        message.append("Valor total: ").append(this.valorTotal);
+        return message.toString();
     }
 
     public void finalizarVenda() {

@@ -12,7 +12,7 @@ public class VendaDAO {
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pads");
 
     
-    public void create(List<Produto> produtos, Cliente cliente, String metodoPagamento, double valorTotal) {
+    public Venda create(List<Produto> produtos, Cliente cliente, String metodoPagamento, double valorTotal) {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -32,6 +32,7 @@ public class VendaDAO {
             em.persist(venda);
 
             em.getTransaction().commit();
+            return venda;
         } catch (Exception e) {
             em.getTransaction().rollback();
             throw e;
